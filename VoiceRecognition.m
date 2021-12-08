@@ -5,7 +5,7 @@ clc;
 
 %1st recording, 1 second
 recorderSystem = audiorecorder(16000,16,1);
-disp("Please record your recorderSystem for 1 sec to train the system.");
+disp("Please record your voice for 1 sec to train the system.");
 pause(1)
 disp("now")
 recordblocking(recorderSystem, 1);
@@ -16,7 +16,7 @@ systemSound = fft(systemSound);
 
 %2nd recording, 1 second
 userSound=audiorecorder(16000,16,1);
-disp("Please record your recorderSystem for 1 sec to access the system.");
+disp("Please record your voice for 1 sec to access the system.");
 pause(1)
 disp("now")
 recordblocking(userSound, 1);
@@ -50,9 +50,9 @@ annotation('textbox', [0, 0.5, 0, 0], 'string', maxT)
 
 %Final display functions
 if  0.02 >= abs(maxT)
-    title("Voices are matching");
+    title("Welcome!");
 else
-    title("Voices are not matching");
+    title("Access denied.");
 
 end
 %You can change the tolerance value if needed
