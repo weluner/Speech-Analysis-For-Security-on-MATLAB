@@ -15,7 +15,7 @@ systemSound = getaudiodata(recorderSystem);
 systemSound = fft(systemSound);
 
 %2nd recording, 1 second
-userSound=audiorecorder(16000,16,1);
+userSound = audiorecorder(16000,16,1);
 disp("Please record your voice for 1 sec to access the system.");
 pause(1)
 disp("now")
@@ -35,7 +35,7 @@ time = -((l1-1)/2):1:((l1-1)/2);
 
 
 %An equation about when the xcorr reaches its maximum
-maxT = time(find(correlated==max(correlated)))/1000;
+maxT = time(find(correlated == max(correlated)))/1000;
 disp(maxT);
 
 
