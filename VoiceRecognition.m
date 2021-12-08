@@ -34,7 +34,7 @@ time = -((lengthCorr-1)/2):1:((lengthCorr-1)/2);
 
 
 %An equation about when the xcorr reaches its maximum
-maxT = time(correlated==max(correlated))/1000;
+maxT = time(correlated == max(correlated))/1000;
 disp(maxT);
 
 
