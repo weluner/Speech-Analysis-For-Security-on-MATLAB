@@ -15,7 +15,7 @@ systemSound = getaudiodata(recorderSystem);
 systemSound = fft(systemSound);
 
 %2nd recording, 1 second
-userSound = audiorecorder(16000,16,1);
+userSound=audiorecorder(16000,16,1);
 disp("Please record your voice for 1 sec to access the system.");
 pause(1)
 disp("now")
@@ -28,19 +28,20 @@ userSound = fft(userSound);
 %Correlation
 correlated = xcorr(systemSound,userSound);
 
-%Variables to find the maximum value
-m1 = max(correlated);
-l1 = length(correlated);
-time = -((l1-1)/2):1:((l1-1)/2);
+%To make time axis 0 centered
+lengthCorr = length(correlated);
+time = -((lengthCorr-1)/2):1:((lengthCorr-1)/2);
 
 
 %An equation about when the xcorr reaches its maximum
-maxT = time(find(correlated == max(correlated)))/1000;
+maxT = time(find(correlated==max(correlated)))/1000;
 disp(maxT);
 
 
 %Plot to see real and imaginary parts of correlated FFT signals
 plot3(time, real(correlated), imag(correlated))
+
+%Plot lables
 xlabel("time")
 ylabel("real xcorr")
 zlabel("imaginary xcorr");
